@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,16 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  const DicePage({Key? key}) : super(key: key);
+
+  @override
+  State<DicePage> createState() => _DicePateState();
+}
+
+class _DicePateState extends State<DicePage> {
+  int leftDiceImage = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,9 +39,13 @@ class DicePage extends StatelessWidget {
               ),
               child: GestureDetector(
                 onTap: () {
-                  print("Left dice pressed");
+                  // print("Left dice pressed");
+                  setState(() {
+                    leftDiceImage = Random().nextInt(6) + 1;
+                    print(leftDiceImage);
+                  });
                 },
-                child: Image.asset('images/dice1.png'),
+                child: Image.asset('images/dice$leftDiceImage.png'),
               ),
             ),
           ),
