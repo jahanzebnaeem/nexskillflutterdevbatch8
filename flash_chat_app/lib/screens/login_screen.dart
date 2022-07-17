@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const String id = 'Welcome_screen';
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
